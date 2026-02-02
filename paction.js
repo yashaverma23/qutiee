@@ -108,3 +108,112 @@ window.onload = () => {
     typeIntro();
     startHearts();
 };
+
+/********************
+ * Final Proposal NO Button Logic
+ ********************/
+
+const noPhrases = [
+    "NO 😏",
+    "Are you sure?",
+    "Try again 😌",
+    "I don't think you want this",
+    "Really? Still trying?",
+    "Hmm… think again 🤔",
+    "This button is useless 😅",
+    "You know the answer 💖",
+    "Nice try 😏",
+    "Okay last chance…"
+];
+
+let noIndex = 0;
+const noFinalBtn = document.getElementById("noFinal");
+
+if (noFinalBtn) {
+    noFinalBtn.addEventListener("mouseover", moveFinalNo);
+    noFinalBtn.addEventListener("touchstart", moveFinalNo);
+}
+
+function moveFinalNo() {
+    // Change text
+    noFinalBtn.innerText = noPhrases[noIndex];
+    noIndex = (noIndex + 1) % noPhrases.length;
+
+    const btnWidth = noFinalBtn.offsetWidth;
+    const btnHeight = noFinalBtn.offsetHeight;
+
+    const padding = 20;
+
+    const maxX = window.innerWidth - btnWidth - padding;
+    const maxY = window.innerHeight - btnHeight - padding;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noFinalBtn.style.position = "fixed";
+    noFinalBtn.style.left = x + "px";
+    noFinalBtn.style.top = y + "px";
+}
+
+/********************
+ * YES → Final Page
+ ********************/
+function yesFinal() {
+    window.location.href = "last.html";
+}
+
+/********************
+ * 🎉 Confetti Effect
+ ********************/
+const canvas = document.getElementById("confettiCanvas");
+
+if (canvas) {
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confetti = [];
+    const colors = ["#ff4d6d", "#ffd166", "#06d6a0", "#4dabf7"];
+
+    for (let i = 0; i < 120; i++) {
+        confetti.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 6 + 4,
+            d: Math.random() * 120,
+            color: colors[Math.floor(Math.random() * colors.length)]
+        });
+    }
+
+    function drawConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        confetti.forEach((c, i) => {
+            ctx.beginPath();
+            ctx.fillStyle = c.color;
+            ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        updateConfetti();
+    }
+
+    function updateConfetti() {
+        confetti.forEach((c) => {
+            c.y += Math.cos(c.d) + 1 + c.r / 2;
+            c.x += Math.sin(c.d);
+
+            if (c.y > canvas.height) {
+                c.y = -10;
+                c.x = Math.random() * canvas.width;
+            }
+        });
+    }
+
+    setInterval(drawConfetti, 20);
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+}

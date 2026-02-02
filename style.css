@@ -156,6 +156,76 @@ body {
     display: none;
 }
 
+/* 💍 Final Proposal Page – Mobile First */
+
+.proposal-container {
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Heading */
+.proposal-text {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Proposal image */
+.proposal-img {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Buttons wrapper */
+.proposal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+/* YES button */
+.yes-btn {
+    background: #ff4d6d;
+    color: white;
+    font-size: 18px;
+    padding: 14px;
+}
+
+/* NO button */
+.no-btn {
+    background: #6c757d;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    position: relative;
+}
+
+/* 🖥️ Tablet & Desktop Enhancements */
+@media (min-width: 600px) {
+
+    .proposal-text {
+        font-size: 24px;
+    }
+
+    .proposal-img {
+        max-width: 260px;
+    }
+
+    .proposal-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .yes-btn,
+    .no-btn {
+        min-width: 140px;
+    }
+}
+
 /* 📱 Mobile */
 @media (max-width: 480px) {
     .buttons {
@@ -169,5 +239,50 @@ body {
 
     .teddy {
         max-width: 150px;
+    }
+}
+
+/* 🎉 YES Celebration Page */
+
+.celebration-container {
+    text-align: center;
+    z-index: 2;
+}
+
+.celebrate-title {
+    font-size: 28px;
+    color: #ff4d6d;
+    margin-bottom: 20px;
+}
+
+.celebrate-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.celebrate-sign {
+    margin-top: 25px;
+    font-size: 18px;
+    color: #ff4d6d;
+}
+
+/* Confetti canvas */
+#confettiCanvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+    .celebrate-title {
+        font-size: 24px;
+    }
+
+    .celebrate-text,
+    .celebrate-sign {
+        font-size: 16px;
     }
 }
