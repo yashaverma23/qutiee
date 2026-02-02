@@ -3,24 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>For You ❤️</title>
+    <title>A Letter for You 💌</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <h2 class="top-text" id="typing"></h2>
+    <div class="overlay">
 
-        <img src="images/cute.gif" alt="Cute Teddy" class="teddy">
+        <div class="envelope-wrapper">
+            <p class="envelope-text">Click to open the letter 💌</p>
 
-        <h3 class="question">Wanna see ??? 🥺</h3>
-
-        <div class="buttons">
-            <button onclick="yesClicked()">Yes 💖</button>
-            <button id="noBtn">No 😏</button>
+            <div class="envelope" onclick="openEnvelope()">
+                <div class="envelope-top"></div>
+                <div class="envelope-body"></div>
+            </div>
         </div>
+
+        <div class="letter" id="letter">
+            <h2>My Love 💖</h2>
+            <p id="letterText"></p>
+            <button id="nextBtn" onclick="goNext()">Next 💖</button>
+        </div>
+
     </div>
 
     <script src="paction.js"></script>
