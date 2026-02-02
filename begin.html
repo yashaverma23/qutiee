@@ -3,35 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>A Letter for You 💌</title>
+    <title>For You ❤️</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="overlay">
-        <div class="envelope" onclick="openEnvelope()">
-            <div class="envelope-top"></div>
-            <div class="envelope-body"></div>
-        </div>
+    <div class="container">
+        <h2 class="top-text" id="typing"></h2>
 
-        <div class="letter" id="letter">
-            <h2>My Love 💖</h2>
+        <img src="images/cute.gif" alt="Cute Teddy" class="teddy">
 
-            <!-- ✍️ WRITE YOUR LONG NOTE HERE -->
-            <p>
-                From the moment you walked into my life, everything changed.
-                You became my calm, my chaos, my smile on bad days, and my
-                favorite thought at night. This little website is just a tiny
-                reflection of what you mean to me…
-                <br><br>
-                I don’t know what the future holds, but I know I want to
-                experience it with you — every laugh, every silence,
-                every dream. 💕
-            </p>
+        <h3 class="question">Wanna see ??? 🥺</h3>
 
-            <button onclick="goNext()">Next 💖</button>
+        <div class="buttons">
+            <button onclick="yesClicked()">Yes 💖</button>
+            <button id="noBtn">No 😏</button>
         </div>
     </div>
 

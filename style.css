@@ -13,6 +13,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Main container */
 .container {
     text-align: center;
     background: white;
@@ -23,17 +24,17 @@ body {
     width: 100%;
 }
 
+/* Text */
 .top-text {
     color: #ff4d6d;
     margin-bottom: 20px;
 }
 
-.love-text {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
+.question {
+    margin-bottom: 20px;
 }
 
+/* Media */
 .teddy {
     max-width: 200px;
     width: 100%;
@@ -42,13 +43,9 @@ body {
     display: block;
 }
 
-.question {
-    margin-bottom: 20px;
-}
-
+/* Buttons */
 .buttons {
     display: flex;
-    justify-content: center;
     gap: 15px;
 }
 
@@ -71,11 +68,7 @@ body {
     color: white;
 }
 
-.buttons button:hover {
-    transform: scale(1.1);
-}
-
-/* Floating hearts */
+/* Hearts */
 .heart {
     position: fixed;
     bottom: -20px;
@@ -84,130 +77,87 @@ body {
     opacity: 0.8;
 }
 
-/* 💌 Envelope Scene */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(to right, #ffdde1, #ee9ca7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* Envelope */
-.envelope {
-    width: 220px;
-    height: 140px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.envelope:hover {
-    transform: scale(1.05);
-}
-
-.envelope-body {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    border-radius: 0 0 10px 10px;
-    z-index: 1;
-}
-
-.envelope-top {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 110px solid transparent;
-    border-right: 110px solid transparent;
-    border-bottom: 70px solid #ff4d6d;
-    top: -70px;
-    left: 0;
-    z-index: 2;
-    transition: transform 0.6s;
-    transform-origin: bottom;
-}
-
-/* Open animation */
-.envelope.open .envelope-top {
-    transform: rotateX(180deg);
-}
-
-/* Letter */
-.letter {
-    width: 90%;
-    max-width: 400px;
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    margin-top: -30px;
-    text-align: center;
-    display: none;
-    animation: slideUp 0.8s ease forwards;
-}
-
-.letter p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.letter button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    background: #ff4d6d;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(60px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 @keyframes floatUp {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-
-    100% {
+    to {
         transform: translateY(-100vh) scale(1.5);
         opacity: 0;
     }
 }
 
+/* 💌 Envelope scene */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to right, #ffdde1, #ee9ca7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.envelope-text {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.envelope {
+    width: 200px;
+    height: 130px;
+    position: relative;
+    cursor: pointer;
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 0 0 12px 12px;
+}
+
+.envelope-top {
+    position: absolute;
+    top: -65px;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 65px solid #ff4d6d;
+    transform-origin: bottom;
+    transition: transform 0.6s ease;
+}
+
+.envelope.open .envelope-top {
+    transform: rotateX(180deg);
+}
+
+.letter {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 16px;
+    display: none;
+    text-align: center;
+}
+
+.letter p {
+    max-height: 55vh;
+    overflow-y: auto;
+    line-height: 1.7;
+}
+
+.letter button {
+    margin-top: 16px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 24px;
+    background: #ff4d6d;
+    color: white;
+    display: none;
+}
+
 /* 📱 Mobile */
 @media (max-width: 480px) {
-
-    .container {
-        padding: 25px 20px;
-        border-radius: 16px;
-    }
-
-    .top-text {
-        font-size: 20px;
-    }
-
-    .teddy {
-        width: 150px;
-    }
-
     .buttons {
         flex-direction: column;
     }
@@ -215,6 +165,9 @@ body {
     .buttons button {
         width: 100%;
         font-size: 18px;
-        padding: 14px;
+    }
+
+    .teddy {
+        max-width: 150px;
     }
 }

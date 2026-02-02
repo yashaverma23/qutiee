@@ -1,55 +1,23 @@
 /********************
- * Typing – index.html
+ * Index page typing
  ********************/
-const typingElement = document.getElementById("typing");
+const typingEl = document.getElementById("typing");
 const introText = "I have made something for you Billi 💕";
 let introIndex = 0;
 
 function typeIntro() {
-    if (typingElement && introIndex < introText.length) {
-        typingElement.innerHTML += introText.charAt(introIndex);
+    if (typingEl && introIndex < introText.length) {
+        typingEl.innerHTML += introText.charAt(introIndex);
         introIndex++;
         setTimeout(typeIntro, 80);
     }
 }
 
-window.onload = () => {
-    typeIntro();
-    startHearts();
-    typeLoveText();
-};
-
 /********************
- * Typing – begin.html
- ********************/
-const loveText = "Every moment with you feels special. I made this little space just to remind you how much you mean to me… 💖";
-const loveElement = document.getElementById("loveTyping");
-let loveIndex = 0;
-
-function typeLoveText() {
-    if (loveElement && loveIndex < loveText.length) {
-        loveElement.innerHTML += loveText.charAt(loveIndex);
-        loveIndex++;
-        setTimeout(typeLoveText, 60);
-    }
-}
-
-/********************
- * Buttons
+ * Navigation
  ********************/
 function yesClicked() {
     window.location.href = "begin.html";
-}
-
-function noClicked() {
-    document.body.innerHTML = `
-        <div class="container">
-            <h2 style="color:red;">How dare you 😡</h2>
-            <img src="images/cute.gif" class="teddy">
-            <br><br>
-            <button onclick="tryAgain()">Try Again 😤</button>
-        </div>
-    `;
 }
 
 function tryAgain() {
@@ -57,17 +25,16 @@ function tryAgain() {
 }
 
 /********************
- * No button escape (desktop + mobile)
+ * No button escape
  ********************/
 const noBtn = document.getElementById("noBtn");
 
 if (noBtn) {
-    noBtn.addEventListener("mouseover", moveNoBtn);
-    noBtn.addEventListener("touchstart", moveNoBtn);
-    noBtn.addEventListener("click", noClicked);
+    noBtn.addEventListener("mouseover", moveNo);
+    noBtn.addEventListener("touchstart", moveNo);
 }
 
-function moveNoBtn() {
+function moveNo() {
     const x = Math.random() * 200 - 100;
     const y = Math.random() * 200 - 100;
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
@@ -90,17 +57,54 @@ function startHearts() {
     }, interval);
 }
 
+/********************
+ * Envelope + Typed Letter
+ ********************/
+const letterContent = `
+From the moment you walked into my life,
+everything started to feel different.
+
+You became my calm on chaotic days,
+my smile without effort,
+and my favorite thought before sleep.
+
+This little letter can’t fully express
+what you truly mean to me,
+but it carries every honest feeling
+straight from my heart… 💖
+`;
+
+let letterIndex = 0;
+
 function openEnvelope() {
     const envelope = document.querySelector(".envelope");
     const letter = document.getElementById("letter");
+    const textArea = document.getElementById("letterText");
 
     envelope.classList.add("open");
+    letter.style.display = "block";
 
-    setTimeout(() => {
-        letter.style.display = "block";
-    }, 600);
+    setTimeout(() => typeLetter(textArea), 400);
+}
+
+function typeLetter(el) {
+    if (letterIndex < letterContent.length) {
+        el.innerHTML += letterContent.charAt(letterIndex);
+        letterIndex++;
+        setTimeout(() => typeLetter(el), 40);
+    } else {
+        document.getElementById("nextBtn").style.display = "inline-block";
+    }
 }
 
 function goNext() {
     window.location.href = "next.html";
 }
+
+/********************
+ * Init
+ ********************/
+window.onload = () => {
+    typeIntro();
+    startHearts();
+};
