@@ -270,12 +270,13 @@ body {
     }
 
     .letter {
-        padding: 15px;
-        max-width: 90%;
+        padding: 25px 20px;
+        max-width: 95%;
     }
 
     .letter p {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.8;
     }
 }
 

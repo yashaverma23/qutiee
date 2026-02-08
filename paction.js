@@ -120,7 +120,8 @@ function openEnvelope() {
 
 function typeLetter(el) {
     if (letterIndex < letterContent.length) {
-        el.innerHTML += letterContent.charAt(letterIndex);
+        let char = letterContent.charAt(letterIndex);
+        el.innerHTML += (char === "\n") ? "<br>" : char;
         letterIndex++;
         setTimeout(() => typeLetter(el), 40);
     } else {
