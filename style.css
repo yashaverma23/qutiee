@@ -154,6 +154,7 @@ body {
     max-height: 55vh;
     overflow-y: auto;
     line-height: 1.7;
+    white-space: pre-wrap;
 }
 
 .letter button {

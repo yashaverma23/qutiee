@@ -103,7 +103,7 @@ This little letter can’t fully express
 what you truly mean to me,
 but it carries every honest feeling
 straight from my heart… 💖
-`;
+`.trim();
 
 let letterIndex = 0;
 
