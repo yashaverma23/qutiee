@@ -61,10 +61,41 @@ function startHearts() {
  * Envelope + Typed Letter
  ********************/
 const letterContent = `
-From the moment you walked into my life,
+From the moment you walked into my life again,
 everything started to feel different.
 
-You became my calm on chaotic days,
+You the missing piece which i always needed to complete my puzzled life.
+See to be honest, i am an idiot, i know that, and i want to know how to love you in your way.
+means i want to know and learn your love language Sweetie 💖.
+
+but also i want you to know that i love you more than anything in this world like,
+
+I'm in love with you like Boa Hancock loves Monkey D. Luffy
+
+I'm obbesed with you like Hinata is for Naruto
+
+I will try my best everytime to protect you like Takemichi did for Hinata
+
+I can stand againt the world like Eren did in love for Mikasa
+
+I can make a fool of myself like Senor Pink does for Russian.
+
+Well I'm an anime fans so all anime refernece hope this will excite you to watch them.
+Btw has some football reference too, wanna know?
+
+You know, Pyar karne se nhi hota, hote hote ho jaata bass.
+and please don't ever think im just your friend coz once Monkey D. Luffy said 
+"Until im alive i have infinite chances to get you".
+
+Aur dhyan seh sunn
+"Na tere jaasa chaiye, na tujhse behtar,
+laakho karodon ki bheed me bhi, mujhe sirf tu hi chaiye"
+
+Aur rahi baat Green man honi, im a green man in everthing,
+until i see you with someone else, after that i am most reddest man on earth.
+I can't see you with anyone else, not even with our friends and not even in dreams.
+
+You know you have became my calm on chaotic days,
 my smile without effort,
 and my favorite thought before sleep.
 
@@ -93,7 +124,10 @@ function typeLetter(el) {
         letterIndex++;
         setTimeout(() => typeLetter(el), 40);
     } else {
-        document.getElementById("nextBtn").style.display = "inline-block";
+        const btnContainer = document.getElementById("letterButtons");
+        if (btnContainer) {
+            btnContainer.style.display = "flex";
+        }
     }
 }
 
